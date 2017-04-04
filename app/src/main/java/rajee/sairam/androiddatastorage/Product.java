@@ -11,10 +11,6 @@ public class Product {
     private String price;
     private String review;
 
-    public Product(){
-
-    }
-
     public Product(String name, String desc, String price, String review){
         this.name = name;
         this.desc = desc;

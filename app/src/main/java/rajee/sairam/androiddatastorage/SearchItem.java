@@ -29,15 +29,16 @@ public class SearchItem extends AppCompatActivity {
         btnSearch.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                EditText name = new EditText(SearchItem.this);
-                EditText desc = new EditText(SearchItem.this);
 
                 dbHandler = new MyDbHandler(SearchItem.this, null, null, 1);
-                Product product = dbHandler.findProduct(searchName.getText().toString());
+                ArrayList<Product> products = dbHandler.findProduct(searchName.getText().toString());
 
                 listView.setAdapter(new ArrayAdapter<Product>
                         (SearchItem.this, R.layout.custom_list_item, new ArrayList<Product>()));
-                ((ArrayAdapter<Product>)listView.getAdapter()).add(product);
+
+                for(int i=0; i<products.size(); i++){
+                    ((ArrayAdapter<Product>)listView.getAdapter()).add(products.get(i));
+                }
             }
         });
 
