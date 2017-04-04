@@ -36,7 +36,7 @@ public class SearchItem extends AppCompatActivity {
                 Product product = dbHandler.findProduct(searchName.getText().toString());
 
                 listView.setAdapter(new ArrayAdapter<Product>
-                        (SearchItem.this, android.R.layout.simple_list_item_1, new ArrayList<Product>()));
+                        (SearchItem.this, R.layout.custom_list_item, new ArrayList<Product>()));
                 ((ArrayAdapter<Product>)listView.getAdapter()).add(product);
             }
         });
