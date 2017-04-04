@@ -2,7 +2,6 @@ package rajee.sairam.androiddatastorage;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -31,8 +30,6 @@ public class InsertItem extends AppCompatActivity {
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.v("name", name.getText().toString());
-                Log.v("desc", desc.getText().toString());
                 dbHandler = new MyDbHandler(InsertItem.this, null, null, 1);
                 Product product = new Product(name.getText().toString(),
                         desc.getText().toString(),

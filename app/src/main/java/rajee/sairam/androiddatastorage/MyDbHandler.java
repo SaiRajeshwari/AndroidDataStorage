@@ -2,6 +2,7 @@ package rajee.sairam.androiddatastorage;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -58,4 +59,23 @@ public class MyDbHandler extends SQLiteOpenHelper{
         db.insert(TABLE_PRODUCT, null, values);
         db.close();
     }
+
+    public Product findProduct(String name){
+        Product product = new Product();
+        String search_query = "SELECT * FROM " + TABLE_PRODUCT
+                + " WHERE " + COLUMN_NAME + " = "
+                + "\"" + name + "\"";
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(search_query, null);
+        if(cursor.moveToFirst()){
+            cursor.moveToFirst();
+            product.setName(cursor.getString(0));
+            product.setDesc(cursor.getString(1));
+            product.setPrice(cursor.getString(2));
+            product.setReview(cursor.getString(3));
+        }
+        return product;
+    }
+
+
 }

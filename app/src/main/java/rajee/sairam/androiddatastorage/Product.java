@@ -11,6 +11,10 @@ public class Product {
     private String price;
     private String review;
 
+    public Product(){
+
+    }
+
     public Product(String name, String desc, String price, String review){
         this.name = name;
         this.desc = desc;
@@ -18,6 +22,13 @@ public class Product {
         this.review = review;
     }
 
+    @Override
+    public String toString() {
+        return "Item Name:     " + name + "\n" +
+                "Item Desc:    " + desc + "\n" +
+                "Item Price:   " + price + "\n" +
+                "Item Review:  " + review + "\n";
+     }
 
     public String getName() {
         return name;
